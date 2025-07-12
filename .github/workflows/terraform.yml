@@ -1,0 +1,28 @@
+name: Terraform Plan (Simulation)
+
+on:
+  push:
+    paths:
+      - 'terraform/**'
+      - '.github/workflows/terraform.yml'
+
+jobs:
+  terraform-plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Initialize Terraform
+        run: terraform -chdir=terraform init
+
+      - name: Validate Terraform
+        run: terraform -chdir=terraform validate
+
+      - name: Run Terraform Plan
+        run: terraform -chdir=terraform plan

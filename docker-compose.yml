@@ -1,0 +1,23 @@
+# docker-compose.yml
+#
+# This file starts ONLY PostgreSQL, using the exact credentials
+# your Medusa setup wizard needs.  You’ll run the Medusa server
+# with “npm run start” inside the medusa‑store folder, so it
+# isn’t defined here.
+
+services:
+  medusa-db:
+    image: postgres:15               # stable Postgres image
+    container_name: medusa-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: medusa_password
+      POSTGRES_DB: medusa-db
+    ports:
+      - "5432:5432"                  # host:container
+    volumes:
+      - medusa_db_data:/var/lib/postgresql/data  # keep data between restarts
+
+volumes:
+  medusa_db_data:
