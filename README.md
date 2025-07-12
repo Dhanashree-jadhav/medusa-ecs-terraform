@@ -23,3 +23,5 @@ medusa-ecs-terraform/
 ├── .github/workflows/       # GitHub Actions workflow
 ├── docker-compose.yml       # Starts PostgreSQL for local dev
 └── README.md
+
+🎥 [Watch Video Demo]((https://www.loom.com/share/334af2c17dae48668b6fab7afa837b54?sid=e3accefa-b6e4-43a2-9da0-22319135da08))
